@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container ontologyLanguage="com.ontoprise.ontostudio.owl.model.OWLManchesterProjectFactory">
+    <ontology id="http://linkedscience.org/teach/ns#" showImports="true"/>
+    <ontology id="http://www.w3.org/2002/12/cal/icaltzd" showImports="true"/>
+    <ontology id="http://www.owl-ontologies.com/Ontology1324312315.owl" showImports="true"/>
+    <ontology id="http://purl.org/net/ebdo" showImports="true"/>
+</container>

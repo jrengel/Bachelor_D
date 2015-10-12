@@ -1,0 +1,472 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY tomi "http://kauppinen.net/tomi#" >
+    <!ENTITY foaf2 "http://xmlns.com/foaf/0.1/#" >
+    <!ENTITY ns1 "http://dbpedia.org/ontology/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY teach2 "http://linkedscience.org/teach/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY teach "http://linkedscience.org/teach/ns#" >
+    <!ENTITY prv "http://purl.org/net/provenance/ns#" >
+    <!ENTITY xhv "http://www.w3.org/1999/xhtml/vocab#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY ical "http://www.w3.org/2002/12/cal/icaltzd#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY j_tram02 "http://http://ifgi.uni-muenster.de/~j_tram02/" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/owl/owlapi/turtle#"
+     xml:base="http://www.semanticweb.org/owl/owlapi/turtle"
+     xmlns:prv="http://purl.org/net/provenance/ns#"
+     xmlns:foaf2="&foaf;#"
+     xmlns:j_tram02="http://http://ifgi.uni-muenster.de/~j_tram02/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:tomi="http://kauppinen.net/tomi#"
+     xmlns:teach="&teach2;ns#"
+     xmlns:ns1="http://dbpedia.org/ontology/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:teach2="http://linkedscience.org/teach/"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ical="http://www.w3.org/2002/12/cal/icaltzd#"
+     xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
+    <owl:Ontology rdf:about="&teach2;ns#">
+        <dct:description xml:lang="en">TEACH, the Teaching Core Vocabulary,
+is a lightweight vocabulary providing terms to enable teachers to relate things in their courses together.
+The Teaching Core Vocabulary is based on practical requirements set by providing seminar and course descriptions as Linked Data.
+</dct:description>
+        <dct:title xml:lang="en">Teaching Core Vocabulary namespace</dct:title>
+        <dct:creator rdf:resource="&tomi;me"/>
+        <prv:createdBy>
+            <rdf:Description/>
+        </prv:createdBy>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&teach2;ns#hasTeachingMethod"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#notArrangedAt"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#building">
+        <rdfs:label xml:lang="en">room</rdfs:label>
+        <rdfs:comment xml:lang="en">building is an abstract property to express the building where the course/seminar takes place.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/Building"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#building"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#bookingNumber"/>
+    <owl:AnnotationProperty rdf:about="&xhv;license"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#room">
+        <rdfs:label xml:lang="en">room</rdfs:label>
+        <rdfs:comment xml:lang="en">room is an abstract property to express the room where the course/seminar takes place.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/Room"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#room"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#reportTemplate"/>
+    <owl:AnnotationProperty rdf:about="&dct;description"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#studentGroup">
+        <rdfs:label xml:lang="en">studentGroup</rdfs:label>
+        <rdfs:comment xml:lang="en">studentGroup is an abstract property to relate a student group to the course/seminar.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/TEACHER"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#studentGroup"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#module">
+        <rdfs:label xml:lang="en">room</rdfs:label>
+        <rdfs:comment xml:lang="en">Describes the module of the study program with which the course/seminar is associated.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/Module"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#module"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#nextReading"/>
+    <owl:AnnotationProperty rdf:about="&ns1;related"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#ects"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#academicTerm"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#reading"/>
+    <owl:AnnotationProperty rdf:about="&foaf;#homepage"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#courseDescription"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#weeklyHours">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Course"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#reviewTemplate"/>
+    <owl:AnnotationProperty rdf:about="&dct;title"/>
+    <owl:AnnotationProperty rdf:about="&dct;conformsTo"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#opponentOf">
+        <rdfs:label xml:lang="en">opponentOf</rdfs:label>
+        <rdfs:comment xml:lang="en">opponentOf is an abstract property to state that a student is an opponent of another, i.e. that he/she makes review of the other student&#39;s seminar work.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#opponentOf"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#deadline"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#deadlineDraftReport"/>
+    <owl:AnnotationProperty rdf:about="&foaf;#name"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#studyProgram">
+        <rdfs:label xml:lang="en">room</rdfs:label>
+        <rdfs:comment xml:lang="en">Describes the study program which is associated with the course/seminar.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#studyProgram"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&prv;performedBy"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#grading"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#deadlineFinalReport"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#teacherOf">
+        <rdfs:label xml:lang="en">teacherOf</rdfs:label>
+        <rdfs:comment xml:lang="en">teacherOf is an abstract property to relate a teacher to a course/seminar.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/TEACHER"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#teacherOf"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#teacher">
+        <rdfs:label xml:lang="en">teacher</rdfs:label>
+        <rdfs:comment xml:lang="en">teacher is an abstract property to relate a teacher to a course/seminar.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/TEACHER"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#teacher"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#arrangedAt">
+        <rdfs:label xml:lang="en">arrangedAt</rdfs:label>
+        <rdfs:comment xml:lang="en">arrangedAt is an abstract property to explicate the date/time when the seminar is arranged at. It can be defined as in the following example:
+  http://www.w3.org/TR/rdfcal/#L21805</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#arrangedAt"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#deadlineReviewReport"/>
+    <owl:AnnotationProperty rdf:about="&teach2;ns#courseTitle"/>
+    <owl:AnnotationProperty rdf:about="&foaf;#primaryTopic"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#arrangedAt -->
+
+    <owl:ObjectProperty rdf:about="&teach2;ns#arrangedAt">
+        <rdfs:label xml:lang="en">arrangedAt</rdfs:label>
+        <rdfs:comment xml:lang="en">arrangedAt is an abstract property to explicate the date/time when the seminar is arranged at. It can be defined as in the following example:
+  http://www.w3.org/TR/rdfcal/#L21805</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach2;ns#Course"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#arrangedAt"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#building -->
+
+    <owl:ObjectProperty rdf:about="&teach2;ns#building">
+        <rdfs:label xml:lang="en">room</rdfs:label>
+        <rdfs:comment xml:lang="en">building is an abstract property to express the building where the course/seminar takes place.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/Building"/>
+        <rdfs:domain rdf:resource="&teach2;ns#Course"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#building"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#module -->
+
+    <owl:ObjectProperty rdf:about="&teach2;ns#module">
+        <rdfs:label xml:lang="en">room</rdfs:label>
+        <rdfs:comment xml:lang="en">Describes the module of the study program with which the course/seminar is associated.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/Module"/>
+        <rdfs:domain rdf:resource="&teach2;ns#Course"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#opponentOf -->
+
+    <owl:ObjectProperty rdf:about="&teach2;ns#opponentOf">
+        <rdfs:label xml:lang="en">opponentOf</rdfs:label>
+        <rdfs:comment xml:lang="en">opponentOf is an abstract property to state that a student is an opponent of another, i.e. that he/she makes review of the other student&#39;s seminar work.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#opponentOf"/>
+        <rdfs:range rdf:resource="&foaf;#Agent"/>
+        <rdfs:domain rdf:resource="&foaf;#Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#room -->
+
+    <owl:ObjectProperty rdf:about="&teach2;ns#room">
+        <rdfs:label xml:lang="en">room</rdfs:label>
+        <rdfs:comment xml:lang="en">room is an abstract property to express the room where the course/seminar takes place.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/Room"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#room"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#studentGroup -->
+
+    <owl:ObjectProperty rdf:about="&teach2;ns#studentGroup">
+        <rdfs:label xml:lang="en">studentGroup</rdfs:label>
+        <rdfs:comment xml:lang="en">studentGroup is an abstract property to relate a student group to the course/seminar.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/TEACHER"/>
+        <rdfs:domain rdf:resource="&teach2;ns#Course"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#studentGroup"/>
+        <rdfs:range rdf:resource="&foaf;#Group"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#studyProgram -->
+
+    <owl:ObjectProperty rdf:about="&teach2;ns#studyProgram">
+        <rdfs:label xml:lang="en">room</rdfs:label>
+        <rdfs:comment xml:lang="en">Describes the study program which is associated with the course/seminar.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#studyProgram"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#teacher -->
+
+    <owl:ObjectProperty rdf:about="&teach2;ns#teacher">
+        <rdfs:label xml:lang="en">teacher</rdfs:label>
+        <rdfs:comment xml:lang="en">teacher is an abstract property to relate a teacher to a course/seminar.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/TEACHER"/>
+        <rdfs:domain rdf:resource="&teach2;ns#Course"/>
+        <rdfs:range rdf:resource="&teach2;ns#Teacher"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#teacher"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#teacherOf -->
+
+    <owl:ObjectProperty rdf:about="&teach2;ns#teacherOf">
+        <rdfs:label xml:lang="en">teacherOf</rdfs:label>
+        <rdfs:comment xml:lang="en">teacherOf is an abstract property to relate a teacher to a course/seminar.</rdfs:comment>
+        <ns1:related rdf:resource="http://dbpedia.org/resource/TEACHER"/>
+        <rdfs:range rdf:resource="&teach2;ns#Course"/>
+        <rdfs:domain rdf:resource="&teach2;ns#Teacher"/>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns#teacherOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Assignment -->
+
+    <owl:Class rdf:about="&teach2;ns#Assignment">
+        <rdfs:label xml:lang="en">Assignment</rdfs:label>
+        <rdfs:comment xml:lang="en">Assignment of a course, for example an exercise.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Building -->
+
+    <owl:Class rdf:about="&teach2;ns#Building">
+        <rdfs:label xml:lang="en">Building</rdfs:label>
+        <rdfs:comment xml:lang="en">Building where the course is taking place.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Course -->
+
+    <owl:Class rdf:about="&teach2;ns#Course">
+        <rdfs:label xml:lang="en">Course</rdfs:label>
+        <rdfs:comment xml:lang="en">Course is where students are supposed to learn something.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Lecture -->
+
+    <owl:Class rdf:about="&teach2;ns#Lecture">
+        <rdfs:label xml:lang="en">Lecture</rdfs:label>
+        <rdfs:comment xml:lang="en">Lecture of the course.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Material -->
+
+    <owl:Class rdf:about="&teach2;ns#Material">
+        <rdfs:label xml:lang="en">Material</rdfs:label>
+        <rdfs:comment xml:lang="en">Material of the course.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Module -->
+
+    <owl:Class rdf:about="&teach2;ns#Module">
+        <rdfs:label xml:lang="en">Module</rdfs:label>
+        <rdfs:comment xml:lang="en">Module (i.e. a set of courses) which the course belongs to.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Room -->
+
+    <owl:Class rdf:about="&teach2;ns#Room">
+        <rdfs:label xml:lang="en">Room</rdfs:label>
+        <rdfs:comment xml:lang="en">Room where the course is taking place.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Student -->
+
+    <owl:Class rdf:about="&teach2;ns#Student">
+        <rdfs:label xml:lang="en">Student</rdfs:label>
+        <rdfs:comment xml:lang="en">Student of the course.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#StudentGroup -->
+
+    <owl:Class rdf:about="&teach2;ns#StudentGroup">
+        <rdfs:label xml:lang="en">StudentGroup</rdfs:label>
+        <rdfs:comment xml:lang="en">StudentGroup of the course.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#StudyProgram -->
+
+    <owl:Class rdf:about="&teach2;ns#StudyProgram">
+        <rdfs:label xml:lang="en">StudyProgram</rdfs:label>
+        <rdfs:comment xml:lang="en">StudyProgram which the course is part of.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Teacher -->
+
+    <owl:Class rdf:about="&teach2;ns#Teacher">
+        <rdfs:label xml:lang="en">Teacher</rdfs:label>
+        <rdfs:comment xml:lang="en">Teacher of the course.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="&teach2;ns"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#Agent -->
+
+    <owl:Class rdf:about="&foaf;#Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#Document -->
+
+    <owl:Class rdf:about="&foaf;#Document"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#Group -->
+
+    <owl:Class rdf:about="&foaf;#Group"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#Person -->
+
+    <owl:Class rdf:about="&foaf;#Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://http://ifgi.uni-muenster.de/~j_tram02/foaf.rdf -->
+
+    <foaf2:Person rdf:about="&j_tram02;foaf.rdf">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <foaf2:name xml:lang="en">Andres Westermann</foaf2:name>
+        <foaf2:name xml:lang="en">Johannes Trame</foaf2:name>
+        <foaf2:homepage rdf:resource="http://ifgi.uni-muenster.de/~j_tram02/"/>
+        <foaf2:homepage rdf:resource="http://www.xing.com/profile/Andres_Westermann"/>
+    </foaf2:Person>
+    
+
+
+    <!-- http://kauppinen.net/tomi#me -->
+
+    <foaf2:Person rdf:about="&tomi;me">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <foaf2:name xml:lang="en">Tomi Kauppinen</foaf2:name>
+        <foaf2:homepage rdf:resource="http://kauppinen.net/tomi"/>
+    </foaf2:Person>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns -->
+
+    <foaf2:Document rdf:about="&teach2;ns">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="en">Document that defines the Teaching Core Vocabulary</rdfs:label>
+        <dct:title xml:lang="en">Teaching Core Vocabulary Specification</dct:title>
+        <dct:description xml:lang="en">This documents specifies the classes and properties introduced by the TEACH core vocabulary.</dct:description>
+        <xhv:license rdf:resource="http://creativecommons.org/licenses/by/1.0/"/>
+        <foaf2:primaryTopic rdf:resource="&teach2;ns#"/>
+        <dct:conformsTo rdf:resource="http://www.w3.org/TR/rdfa-syntax"/>
+    </foaf2:Document>
+    <rdf:Description>
+        <prv:performedBy rdf:resource="&tomi;me"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.0.1502) http://owlapi.sourceforge.net -->
+

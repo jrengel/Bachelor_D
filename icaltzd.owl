@@ -1,0 +1,2109 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY rfc "http://www.ietf.org/rfc/" >
+    <!ENTITY h "http://www.w3.org/1999/xhtml" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY cal2 "http://www.w3.org/2002/12/cal/" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY dt "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY spec "http://www.w3.org/2002/12/cal/icalSpec#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="&cal2;icaltzd#"
+     xml:base="&cal2;icaltzd"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:spec="&cal2;icalSpec#"
+     xmlns:dt="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:cal2="http://www.w3.org/2002/12/cal/"
+     xmlns:rfc="http://www.ietf.org/rfc/"
+     xmlns:h="http://www.w3.org/1999/xhtml">
+    <owl:Ontology rdf:about="&cal2;icaltzd">
+        <owl:versionInfo>$Id: icaltzd.rdf,v 1.6 2007/06/28 18:22:09 connolly Exp $</owl:versionInfo>
+        <owl:versionInfo>subject to change with notice to www-rdf-calendar@w3.org</owl:versionInfo>
+        <rdfs:seeAlso rdf:resource="http://esw.w3.org/topic/RdfCalendar"/>
+        <rdfs:seeAlso rdf:resource="http://lists.w3.org/Archives/Public/www-rdf-calendar/"/>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/2002/12/cal/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&cal2;icalSpec#valueListType"/>
+    <owl:AnnotationProperty rdf:about="&cal2;icaltzd#summary">
+        <rdfs:label>summary</rdfs:label>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>This property defines a short summary or subject for the calendar component.</rdfs:comment>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&rdfs;label"/>
+        <rdfs:domain rdf:resource="&cal2;icaltzd#genid-nodeid-DomainOf_summary"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&cal2;icalSpec#valueType"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Value_DATE-TIME -->
+
+    <rdfs:Datatype rdf:about="&cal2;icaltzd#Value_DATE-TIME"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#dateTime -->
+
+    <rdfs:Datatype rdf:about="&cal2;icaltzd#dateTime"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/source -->
+
+    <owl:ObjectProperty rdf:about="&dc;source"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#attach -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#attach">
+        <spec:valueType>URI</spec:valueType>
+        <rdfs:comment>
+	    default value type: URI</rdfs:comment>
+        <rdfs:comment>The property provides the capability to associate a document object with a calendar component.</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Valarm"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#attendee -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#attendee">
+        <rdfs:label>attendee</rdfs:label>
+        <rdfs:comment>
+	    value type: CAL-ADDRESS</rdfs:comment>
+        <rdfs:comment>The property defines an &quot;Attendee&quot; within a calendar component.</rdfs:comment>
+        <spec:valueType>CAL-ADDRESS</spec:valueType>
+        <rdfs:range rdf:resource="&cal2;icaltzd#Value_CAL-ADDRESS"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Valarm"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#calAddress -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#calAddress"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#component -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#component"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#daylight -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#daylight">
+        <rdfs:label>DAYLIGHT</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#duration -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#duration">
+        <rdfs:comment>
+	    value type: DURATION</rdfs:comment>
+        <rdfs:comment>The property specifies a positive duration of time.</rdfs:comment>
+        <spec:valueType>DURATION</spec:valueType>
+        <rdfs:range rdf:resource="&cal2;icaltzd#Value_DURATION"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Valarm"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#exrule -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#exrule">
+        <rdfs:comment>This property defines a rule or repeating pattern for an exception to a recurrence set.</rdfs:comment>
+        <rdfs:comment>
+	    value type: RECUR</rdfs:comment>
+        <spec:valueType>RECUR</spec:valueType>
+        <rdfs:range rdf:resource="&cal2;icaltzd#Value_RECUR"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#freebusy -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#freebusy">
+        <spec:valueType>PERIOD</spec:valueType>
+        <rdfs:comment>
+	    value type: PERIOD</rdfs:comment>
+        <rdfs:comment>The property defines one or more free or busy time intervals.</rdfs:comment>
+        <rdfs:range rdf:resource="&cal2;icaltzd#Value_PERIOD"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#geo -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#geo">
+        <rdfs:comment>
+	    value type: list of FLOAT</rdfs:comment>
+        <rdfs:comment>This property specifies information related to the global position for the activity specified by a calendar component.</rdfs:comment>
+        <spec:valueListType>FLOAT</spec:valueListType>
+        <rdfs:range rdf:resource="&cal2;icaltzd#List_of_Float"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#organizer -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#organizer">
+        <rdfs:comment>The property defines the organizer for a calendar component.</rdfs:comment>
+        <rdfs:comment>
+	    value type: CAL-ADDRESS</rdfs:comment>
+        <spec:valueType>CAL-ADDRESS</spec:valueType>
+        <rdfs:range rdf:resource="&cal2;icaltzd#Value_CAL-ADDRESS"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#rrule -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#rrule">
+        <rdfs:comment>This property defines a rule or repeating pattern for recurring events, to-dos, or time zone definitions.</rdfs:comment>
+        <spec:valueType>RECUR</spec:valueType>
+        <rdfs:comment>
+	    value type: RECUR</rdfs:comment>
+        <rdfs:range rdf:resource="&cal2;icaltzd#Value_RECUR"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtimezone"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#standard -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#standard">
+        <rdfs:label>STANDARD</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#trigger -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#trigger">
+        <rdfs:comment>This property specifies when an alarm will trigger.</rdfs:comment>
+        <rdfs:comment>
+	    default value type: DURATION</rdfs:comment>
+        <spec:valueType>DURATION</spec:valueType>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Value_DATE"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Value_DURATION"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Valarm"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#tzurl -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#tzurl">
+        <spec:valueType>URI</spec:valueType>
+        <rdfs:comment>The TZURL provides a means for a VTIMEZONE component to point to a network location that can be used to retrieve an up-to- date version of itself.</rdfs:comment>
+        <rdfs:comment>
+	    value type: URI</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtimezone"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#url -->
+
+    <owl:ObjectProperty rdf:about="&cal2;icaltzd#url">
+        <rdfs:label>see also</rdfs:label>
+        <rdfs:comment>
+	    value type: URI</rdfs:comment>
+        <rdfs:comment>This property defines a Uniform Resource Locator (URL) associated with the iCalendar object.</rdfs:comment>
+        <spec:valueType>URI</spec:valueType>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#value -->
+
+    <owl:DatatypeProperty rdf:about="&rdf;value"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#X- -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#X-">
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:comment>This class of property provides a framework for defining non-standard properties.</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:range rdf:resource="&dt;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#action -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#action">
+        <rdfs:comment>This property defines the action to be invoked when an alarm is triggered.</rdfs:comment>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Valarm"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#altrep -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#altrep">
+        <rdfs:comment>To specify an alternate text representation for the property value.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#byday -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#byday">
+        <rdfs:label>BYDAY</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#byhour -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#byhour">
+        <rdfs:label>BYHOUR</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#byminute -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#byminute">
+        <rdfs:label>BYMINUTE</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#bymonth -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#bymonth">
+        <rdfs:label>BYMONTH</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#bysecond -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#bysecond">
+        <rdfs:label>BYSECOND</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#bysetpos -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#bysetpos">
+        <rdfs:label>BYSETPOS</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#byweekno -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#byweekno">
+        <rdfs:label>BYWEEKNO</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#byyearday -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#byyearday">
+        <rdfs:label>BYYEARDAY</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#calscale -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#calscale">
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:comment>This property defines the calendar scale used for the calendar information specified in the iCalendar object.</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:range rdf:resource="&dt;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#categories -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#categories">
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:comment>This property defines the categories for a calendar component.</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#class -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#class">
+        <rdfs:comment>This property defines the access classification for a calendar component.</rdfs:comment>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#cn -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#cn">
+        <rdfs:comment>To specify the common name to be associated with the calendar user specified by the property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#comment -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#comment">
+        <rdfs:comment>This property specifies non-processing information intended to provide a comment to the calendar user.</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtimezone"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#completed -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#completed">
+        <spec:valueType>DATE-TIME</spec:valueType>
+        <rdfs:comment>
+	    value type: DATE-TIME</rdfs:comment>
+        <rdfs:comment>This property defines the date and time that a to-do was actually completed.</rdfs:comment>
+        <rdfs:range rdf:resource="&cal2;icaltzd#Value_DATE-TIME"/>
+        <rdfs:domain rdf:resource="&cal2;icaltzd#Vtodo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#contact -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#contact">
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>The property is used to represent contact information or alternately a reference to contact information associated with the calendar component.</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#count -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#count">
+        <rdfs:label>COUNT</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#created -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#created">
+        <spec:valueType>DATE-TIME</spec:valueType>
+        <rdfs:comment>
+	    value type: DATE-TIME</rdfs:comment>
+        <rdfs:comment>This property specifies the date and time that the calendar information was created by the calendar user agent in the calendar store. Note: This is analogous to the creation date and time for a file in the file system.</rdfs:comment>
+        <rdfs:range rdf:resource="&cal2;icaltzd#Value_DATE-TIME"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#cutype -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#cutype">
+        <rdfs:comment>To specify the type of calendar user specified by the property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#delegatedFrom -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#delegatedFrom">
+        <rdfs:comment>To specify the calendar users that have delegated their participation to the calendar user specified by the property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#delegatedTo -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#delegatedTo">
+        <rdfs:comment>To specify the calendar users to whom the calendar user specified by the property has delegated participation.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#description -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#description">
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>This property provides a more complete description of the calendar component, than that provided by the &quot;SUMMARY&quot; property.</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Valarm"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#dir -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#dir">
+        <rdfs:comment>To specify reference to a directory entry associated with the calendar user specified by the property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#dtend -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#dtend">
+        <rdfs:label>end</rdfs:label>
+        <rdfs:comment>This property specifies the date and time that a calendar component ends.</rdfs:comment>
+        <rdfs:comment>
+	    default value type: DATE-TIME</rdfs:comment>
+        <spec:valueType>DATE-TIME</spec:valueType>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#dtstamp -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#dtstamp">
+        <spec:valueType>DATE-TIME</spec:valueType>
+        <rdfs:comment>
+	    value type: DATE-TIME</rdfs:comment>
+        <rdfs:comment>The property indicates the date/time that the instance of the iCalendar object was created.</rdfs:comment>
+        <rdfs:range rdf:resource="&cal2;icaltzd#Value_DATE-TIME"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#dtstart -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#dtstart">
+        <rdfs:label>start</rdfs:label>
+        <rdfs:comment>This property specifies when the calendar component begins.</rdfs:comment>
+        <spec:valueType>DATE-TIME</spec:valueType>
+        <rdfs:comment>
+	    default value type: DATE-TIME</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtimezone"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#due -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#due">
+        <spec:valueType>DATE-TIME</spec:valueType>
+        <rdfs:comment>This property defines the date and time that a to-do is expected to be completed.</rdfs:comment>
+        <rdfs:comment>
+	    default value type: DATE-TIME</rdfs:comment>
+        <rdfs:domain rdf:resource="&cal2;icaltzd#Vtodo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#encoding -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#encoding">
+        <rdfs:comment>To specify an alternate inline encoding for the property value.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#exdate -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#exdate">
+        <rdfs:comment>This property defines the list of date/time exceptions for a recurring calendar component.</rdfs:comment>
+        <rdfs:comment>
+	    default value type: DATE-TIME</rdfs:comment>
+        <spec:valueType>DATE-TIME</spec:valueType>
+        <rdfs:domain rdf:resource="&cal2;icaltzd#DomainOf_rrule"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#fbtype -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#fbtype">
+        <rdfs:comment>To specify the free or busy time type.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#fmttype -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#fmttype">
+        <rdfs:comment>To specify the content type of a referenced object.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#freq -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#freq">
+        <rdfs:label>FREQ</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#interval -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#interval">
+        <rdfs:label>INTERVAL</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#language -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#language">
+        <rdfs:comment>To specify the language for text values in a property or property parameter.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#lastModified -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#lastModified">
+        <rdfs:comment>The property specifies the date and time that the information associated with the calendar component was last revised in the calendar store. Note: This is analogous to the modification date and time for a file in the file system.</rdfs:comment>
+        <spec:valueType>DATE-TIME</spec:valueType>
+        <rdfs:comment>
+	    value type: DATE-TIME</rdfs:comment>
+        <rdfs:range rdf:resource="&cal2;icaltzd#Value_DATE-TIME"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtimezone"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#location -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#location">
+        <rdfs:label>location</rdfs:label>
+        <rdfs:comment>The property defines the intended venue for the activity defined by a calendar component.</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#member -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#member">
+        <rdfs:comment>To specify the group or list membership of the calendar user specified by the property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#method -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#method">
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:comment>This property defines the iCalendar object method associated with the calendar object.</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:range rdf:resource="&dt;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#partstat -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#partstat">
+        <rdfs:comment>To specify the participation status for the calendar user specified by the property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#percentComplete -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#percentComplete">
+        <rdfs:comment>
+	    value type: INTEGER</rdfs:comment>
+        <spec:valueType>INTEGER</spec:valueType>
+        <rdfs:comment>This property is used by an assignee or delegatee of a to-do to convey the percent completion of a to-do to the Organizer.</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;integer"/>
+        <rdfs:domain rdf:resource="&cal2;icaltzd#Vtodo"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#priority -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#priority">
+        <rdfs:comment>
+	    value type: INTEGER</rdfs:comment>
+        <spec:valueType>INTEGER</spec:valueType>
+        <rdfs:comment>The property defines the relative priority for a calendar component.</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;integer"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#prodid -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#prodid">
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:comment>This property specifies the identifier for the product that created the iCalendar object.</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#range -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#range">
+        <rdfs:comment>To specify the effective range of recurrence instances from the instance specified by the recurrence identifier specified by the property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#rdate -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#rdate">
+        <rdfs:comment>
+	    default value type: DATE-TIME</rdfs:comment>
+        <rdfs:comment>This property defines the list of date/times for a recurrence set.</rdfs:comment>
+        <spec:valueType>DATE-TIME</spec:valueType>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtimezone"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#recurrenceId -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#recurrenceId">
+        <rdfs:comment>This property is used in conjunction with the &quot;UID&quot; and &quot;SEQUENCE&quot; property to identify a specific instance of a recurring &quot;VEVENT&quot;, &quot;VTODO&quot; or &quot;VJOURNAL&quot; calendar component. The property value is the effective value of the &quot;DTSTART&quot; property of the recurrence instance.</rdfs:comment>
+        <rdfs:comment>
+	    default value type: DATE-TIME</rdfs:comment>
+        <spec:valueType>DATE-TIME</spec:valueType>
+        <rdfs:domain rdf:resource="&cal2;icaltzd#DomainOf_rrule"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#related -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#related">
+        <rdfs:comment>To specify the relationship of the alarm trigger with respect to the start or end of the calendar component.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#relatedTo -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#relatedTo">
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>The property is used to represent a relationship or reference between one calendar component and another.</rdfs:comment>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#reltype -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#reltype">
+        <rdfs:comment>To specify the type of hierarchical relationship associated with the calendar component specified by the property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#repeat -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#repeat">
+        <spec:valueType>INTEGER</spec:valueType>
+        <rdfs:comment>This property defines the number of time the alarm should be repeated, after the initial trigger.</rdfs:comment>
+        <rdfs:comment>
+	    value type: INTEGER</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;integer"/>
+        <rdfs:domain rdf:resource="&cal2;icaltzd#Valarm"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#requestStatus -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#requestStatus">
+        <rdfs:comment>This property defines the status code returned for a scheduling request.</rdfs:comment>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#resources -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#resources">
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:comment>This property defines the equipment or resources anticipated for an activity specified by a calendar entity..</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#role -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#role">
+        <rdfs:comment>To specify the participation role for the calendar user specified by the property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#rsvp -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#rsvp">
+        <rdfs:comment>To specify whether there is an expectation of a favor of a reply from the calendar user specified by the property value.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#sentBy -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#sentBy">
+        <rdfs:comment>To specify the calendar user that is acting on behalf of the calendar user specified by the property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#sequence -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#sequence">
+        <spec:valueType>integer</spec:valueType>
+        <rdfs:comment>
+	    value type: integer</rdfs:comment>
+        <rdfs:comment>This property defines the revision sequence number of the calendar component within a sequence of revisions.</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;integer"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#status -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#status">
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:comment>This property defines the overall status or confirmation for the calendar component.</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#summary -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#summary">
+        <rdfs:label>summary</rdfs:label>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>This property defines a short summary or subject for the calendar component.</rdfs:comment>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#transp -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#transp">
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>This property defines whether an event is transparent or not to busy time searches.</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain rdf:resource="&cal2;icaltzd#Vevent"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#tzid -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#tzid">
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>This property specifies the text value that uniquely identifies the &quot;VTIMEZONE&quot; calendar component.</rdfs:comment>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:comment>To specify the identifier for the time zone definition for a time component in the property value.</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain rdf:resource="&cal2;icaltzd#Vtimezone"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#tzname -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#tzname">
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:comment>This property specifies the customary designation for a time zone description.</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain rdf:resource="&cal2;icaltzd#Vtimezone"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#tzoffsetfrom -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#tzoffsetfrom">
+        <spec:valueType>UTC-OFFSET</spec:valueType>
+        <rdfs:comment>This property specifies the offset which is in use prior to this time zone observance.</rdfs:comment>
+        <rdfs:comment>
+	    value type: UTC-OFFSET</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtimezone"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#tzoffsetto -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#tzoffsetto">
+        <spec:valueType>UTC-OFFSET</spec:valueType>
+        <rdfs:comment>This property specifies the offset which is in use in this time zone observance.</rdfs:comment>
+        <rdfs:comment>
+	    value type: UTC-OFFSET</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain rdf:resource="&cal2;icaltzd#Vtimezone"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#uid -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#uid">
+        <rdfs:comment>This property defines the persistent, globally unique identifier for the calendar component.</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vevent"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vfreebusy"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vjournal"/>
+                    <rdf:Description rdf:about="&cal2;icaltzd#Vtodo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#until -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#until">
+        <rdfs:label>UNTIL</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#version -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#version">
+        <rdfs:comment>
+	    value type: TEXT</rdfs:comment>
+        <spec:valueType>TEXT</spec:valueType>
+        <rdfs:comment>This property specifies the identifier corresponding to the highest version number or the minimum and maximum range of the iCalendar specification that is required in order to interpret the iCalendar object.</rdfs:comment>
+        <rdfs:range rdf:resource="&dt;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#wkst -->
+
+    <owl:DatatypeProperty rdf:about="&cal2;icaltzd#wkst">
+        <rdfs:label>WKST</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#DomainOf_rrule -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#DomainOf_rrule"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#List_of_Float -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#List_of_Float"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Valarm -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Valarm">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#trigger"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#description"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#duration"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#action"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#repeat"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#attendee"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#summary"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#attach"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Provide a grouping of component properties that define an alarm.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Value_CAL-ADDRESS -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Value_CAL-ADDRESS"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Value_DATE -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Value_DATE"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Value_DURATION -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Value_DURATION"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Value_PERIOD -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Value_PERIOD"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Value_RECUR -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Value_RECUR"/>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Vcalendar -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Vcalendar">
+        <rdfs:label>VCALENDAR</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Vevent -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Vevent">
+        <rdfs:label>Event</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#trigger"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#requestStatus"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#exrule"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#resources"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#uid"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#categories"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#summary"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#class"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#contact"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#location"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#exdate"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#rdate"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#dtstart"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#comment"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#lastModified"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#rrule"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#dtend"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#transp"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#description"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#dtstamp"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#geo"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#created"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#url"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#status"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#attach"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#priority"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#organizer"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#relatedTo"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#attendee"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#duration"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#recurrenceId"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#sequence"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Provide a grouping of component properties that describe an event.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Vfreebusy -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Vfreebusy">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#requestStatus"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#contact"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#duration"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#attendee"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#organizer"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#dtstart"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#dtend"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#comment"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#uid"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#freebusy"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#dtstamp"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#url"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Provide a grouping of component properties that describe either a request for free/busy time, describe a response to a request for free/busy time or describe a published set of busy time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Vjournal -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Vjournal">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#rdate"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#recurrenceId"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#created"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#sequence"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#comment"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#status"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#organizer"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#contact"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#relatedTo"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#summary"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#attendee"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#uid"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#rrule"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#requestStatus"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#dtstamp"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#url"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#categories"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#attach"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#exdate"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#exrule"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#class"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#lastModified"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#description"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Provide a grouping of component properties that describe a journal entry.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Vtimezone -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Vtimezone">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#dtstart"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#recurrenceId"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#rrule"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#tzoffsetfrom"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#comment"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#rdate"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#tzoffsetto"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#tzurl"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#tzname"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#lastModified"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#exdate"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#tzid"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Provide a grouping of component properties that defines a time zone.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/12/cal/icaltzd#Vtodo -->
+
+    <owl:Class rdf:about="&cal2;icaltzd#Vtodo">
+        <rdfs:label>To-do</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#location"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#contact"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#dtstart"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#recurrenceId"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#requestStatus"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#comment"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#attach"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#completed"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#sequence"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#resources"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#rrule"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#trigger"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#status"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#class"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#rdate"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#priority"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#url"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#summary"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#due"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#exrule"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#relatedTo"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#dtstamp"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#attendee"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#created"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#description"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#organizer"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#lastModified"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#categories"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#duration"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#geo"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#percentComplete"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#exdate"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cal2;icaltzd#uid"/>
+                <owl:minCardinality rdf:datatype="&dt;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Provide a grouping of calendar properties that describe a to-do.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.0.1502) http://owlapi.sourceforge.net -->
+

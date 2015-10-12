@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1433377211353" name="http://purl.org/net/ebdo" uri="Bachelor_Degree.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1433377211353" name="http://www.owl-ontologies.com/Ontology1324312315.owl" uri="Bowlogna%252520Ontology%252520v_0_3_owl_1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1433377211353" name="http://www.semanticweb.org/owl/owlapi/turtle" uri="TEACH.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1433377211353" name="http://www.w3.org/2002/12/cal/icaltzd" uri="icaltzd.owl"/>
+    </group>
+</catalog>

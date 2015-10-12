@@ -1,0 +1,1074 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY swrlx "http://www.w3.org/2003/11/swrlx#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY teach "http://linkedscience.org/teach/ns#" >
+    <!ENTITY vocab "http://www.w3.org/1999/xhtml/vocab#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY ical "http://www.w3.org/2002/12/cal/icaltzd#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY bowlogna "http://www.owl-ontologies.com/Ontology1324312315.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/net/ebdo#"
+     xml:base="http://purl.org/net/ebdo"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/#"
+     xmlns:swrlx="http://www.w3.org/2003/11/swrlx#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:teach="http://linkedscience.org/teach/ns#"
+     xmlns:bowlogna="http://www.owl-ontologies.com/Ontology1324312315.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ical="http://www.w3.org/2002/12/cal/icaltzd#"
+     xmlns:vocab="http://www.w3.org/1999/xhtml/vocab#">
+    <owl:Ontology rdf:about="http://purl.org/net/ebdo">
+        <terms:license rdf:datatype="http://purl.org/net/ebdo#owlIndividual">&lt;http://creativecommons.org/licenses/by/4.0/&gt;</terms:license>
+        <terms:creator rdf:datatype="&xsd;string">Jonatan Rengel Quiroga</terms:creator>
+        <rdfs:comment rdf:datatype="&xsd;string">Red de ontologias desarrollada como parte de un proyecto fin de carrera en Ingenieria Informatica por la Universidad Politecnica de Madrid. El desarrollo de esta red de ontologias ha seguido la metodologa NeOn (http://oa.upm.es/3879/)</rdfs:comment>
+        <owl:versionInfo rdf:datatype="&xsd;string">Version 1.0    01-06-2015</owl:versionInfo>
+        <terms:contributor>Mari Carmen Suarez-Figueroa</terms:contributor>
+        <rdfs:comment xml:lang="en">Ontology network developed as part of a computer science bachelor project in Universidad Politecnica de Madrid. The development of this ontology network has followed the NeOn Methodology (http://oa.upm.es/3879/ )</rdfs:comment>
+        <rdfs:comment xml:lang="en">This work is licensed under a Creative Commons License. This copyright applies to the European Bacherlor Degree Ontology and accompanying documentation
+(http://creativecommons.org/licenses/by/4.0/)</rdfs:comment>
+        <owl:imports rdf:resource="http://linkedscience.org/teach/ns#"/>
+        <owl:imports rdf:resource="http://www.owl-ontologies.com/Ontology1324312315.owl"/>
+        <owl:imports rdf:resource="http://www.w3.org/2002/12/cal/icaltzd"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&teach;academicTerm">
+        <rdfs:domain rdf:resource="&teach;Course"/>
+    </rdf:Description>
+    <owl:AnnotationProperty rdf:about="&teach;hasTitle"/>
+    <owl:AnnotationProperty rdf:about="&teach;hasDescription"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#arrangedAt -->
+
+    <rdf:Description rdf:about="&teach;arrangedAt">
+        <rdfs:range rdf:resource="&ical;Vevent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#building -->
+
+    <rdf:Description rdf:about="&teach;building">
+        <rdfs:range rdf:resource="&teach;Building"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#module -->
+
+    <rdf:Description rdf:about="&teach;module">
+        <rdfs:range rdf:resource="&teach;Module"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#room -->
+
+    <rdf:Description rdf:about="&teach;room">
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&teach;Room"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#studyProgram -->
+
+    <rdf:Description rdf:about="&teach;studyProgram">
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&teach;StudyProgram"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/ebdo#belongsToUniversity -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#belongsToUniversity">
+        <rdfs:comment xml:lang="en">property that indicates that a Faculty belongs to a certain University</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#University"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#University_Career"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#grants -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#grants">
+        <rdfs:comment xml:lang="en">property that indicates that a university grants bachelor degrees</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#University"/>
+        <rdfs:range rdf:resource="&bowlogna;Bachelor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasAssignment -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasAssignment">
+        <rdfs:comment xml:lang="en">Assignments of a subject. This property is listed in the TEACH ontology documentation, although is not part of the ontology, reference: http://linkedscience.org/teach/ns/</rdfs:comment>
+        <rdfs:range rdf:resource="&teach;Assignment"/>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasAssignmentMaterial -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasAssignmentMaterial">
+        <rdfs:comment xml:lang="en">This property represents that an assignment of a course can have materials, like book references, slides, etc. This property is listed in the TEACH ontology documentation, although is not part of the ontology, reference: http://linkedscience.org/teach/ns/</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Assignment"/>
+        <rdfs:range rdf:resource="&teach;Material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasCombinationOfBachelorDegrees -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasCombinationOfBachelorDegrees">
+        <rdfs:comment xml:lang="en">This property represent that a double bachelor degree, is the combination of two bachelor degrees</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#Double_Bachelor_Degree"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Engineering_And_Architecture"/>
+                    <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Health_Science"/>
+                    <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Social_And_Legal_Science"/>
+                    <rdf:Description rdf:about="&bowlogna;Bachelor_Of_Arts"/>
+                    <rdf:Description rdf:about="&bowlogna;Bachelor_Of_Science"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasCourseMaterial -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasCourseMaterial">
+        <rdfs:comment xml:lang="en">This property represents, that a subject/course has work material. This property is listed in the TEACH ontology documentation, although is not part of the ontology, reference: http://linkedscience.org/teach/ns/</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&teach;Material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasDepartment -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasDepartment">
+        <rdfs:comment xml:lang="en">This property represents that a Faculty is composed of departments</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#Faculty"/>
+        <rdfs:range rdf:resource="&bowlogna;Department"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasFaculty -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasFaculty">
+        <rdfs:comment xml:lang="en">This property represents that a University is composed of Faculties</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#Faculty"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#University"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasLecture -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasLecture">
+        <rdfs:comment xml:lang="en">This property represents that a course/subject is composed of Lectures. </rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&teach;Lecture"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isComposedOfBasicSubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isComposedOfBasicSubject">
+        <rdfs:comment xml:lang="en">This property represents that a basic module is composed of basic subjects</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/ebdo#isComposedOfSubject"/>
+        <rdfs:domain rdf:resource="&bowlogna;Basic_Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isComposedOfComplementarySubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isComposedOfComplementarySubject">
+        <rdfs:comment xml:lang="en">This property represents that a complementary module is composed of complementary subjects such as cultural activities</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#Cultural_Activities"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/ebdo#isComposedOfSubject"/>
+        <rdfs:domain rdf:resource="&bowlogna;Complementary_Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isComposedOfObligatorySubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isComposedOfObligatorySubject">
+        <rdfs:comment xml:lang="en">This property represents that an obligatory module is composed of obligatory subjects</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/ebdo#isComposedOfSubject"/>
+        <rdfs:domain rdf:resource="&bowlogna;Obligatory_Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isComposedOfOptionalSubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isComposedOfOptionalSubject">
+        <rdfs:comment xml:lang="en">This property represents that an optinal module is composed of optional subjects</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/ebdo#isComposedOfSubject"/>
+        <rdfs:domain rdf:resource="&bowlogna;Optional_Module"/>
+        <rdfs:range rdf:resource="&bowlogna;Optional_Subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isComposedOfSubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isComposedOfSubject">
+        <rdfs:comment xml:lang="en">This property represents that the modules are composed of subjects</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Module"/>
+        <rdfs:range rdf:resource="&bowlogna;Subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isStructured -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isStructured">
+        <rdfs:comment xml:lang="en">This property represents that a Bachelor is structured in modules, this informatio could be reflected in the study program</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:range rdf:resource="&bowlogna;Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isTaughtInSemester -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isTaughtInSemester">
+        <rdfs:comment xml:lang="en">This property represents that a subject/course is taught in a specific semester (eg Summer semester 2015).</rdfs:comment>
+        <rdfs:range rdf:resource="&bowlogna;Semester"/>
+        <rdfs:domain rdf:resource="&bowlogna;Subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#leadsInto -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#leadsInto">
+        <rdfs:comment xml:lang="en">This property represents that a university career, leads into a bachelor degree</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#University_Career"/>
+        <rdfs:range rdf:resource="&bowlogna;Bachelor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#participatesInSubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#participatesInSubject">
+        <rdfs:comment xml:lang="en">This property represents that a sutudent is registered to participate in a subject</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Student"/>
+        <rdfs:range rdf:resource="&bowlogna;Subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#receivesScholarship -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#receivesScholarship">
+        <rdfs:comment xml:lang="en">property that indicates when a student recives a scholarship</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#Scholarship"/>
+        <rdfs:domain rdf:resource="&bowlogna;Student"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#endsBachelorStudiesOn -->
+
+    <owl:ObjectProperty rdf:about="&bowlogna;endsBachelorStudiesOn"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#enrolledForBachelorStudiesOn -->
+
+    <owl:ObjectProperty rdf:about="&bowlogna;enrolledForBachelorStudiesOn"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#isAComponentOf -->
+
+    <owl:ObjectProperty rdf:about="&bowlogna;isAComponentOf"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#isAffiliatedWithDepartment -->
+
+    <owl:ObjectProperty rdf:about="&bowlogna;isAffiliatedWithDepartment"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#isInStudyTrack -->
+
+    <owl:ObjectProperty rdf:about="&bowlogna;isInStudyTrack"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/ebdo#academicTerm -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#academicTerm">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#bookingNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#bookingNumber">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#courseDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#courseDescription">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#courseTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#courseTitle">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#deadline -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#deadline">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#deadlineDraftReport -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#deadlineDraftReport">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#deadlineFinalReport -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#deadlineFinalReport">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#deadlineReviewReport -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#deadlineReviewReport">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#finishOfEnrollmentPeriod -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#finishOfEnrollmentPeriod">
+        <rdfs:comment xml:lang="en">This property represents the date when the enrollment period ends</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Semester"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#grading -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#grading">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#hasDescription">
+        <rdfs:comment rdf:datatype="&xsd;string">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasPrerequisite -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#hasPrerequisite">
+        <rdfs:comment xml:lang="en">This property represent the prerequisites that a subject/course has in order to participate in it</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Subject"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasTeachingMethod -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#hasTeachingMethod">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#hasTitle">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isOfficial -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#isOfficial">
+        <rdfs:comment xml:lang="en">In a case of an official degree (TRUE), it means that the bachelor degree is recognized by the government, in other case (FALSE) it is not recognized by the government. Only private universities can grant not official bachelor degrees.</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#nextReading -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#nextReading">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#notArrangedAt -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#notArrangedAt">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#reading -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#reading">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#reportTemplate -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#reportTemplate">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#reviewTemplate -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#reviewTemplate">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#startOfEnrollmentPeriod -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#startOfEnrollmentPeriod">
+        <rdfs:comment xml:lang="en">This property represents the date when the enrollment period starts </rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Semester"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#weeklyHours -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#weeklyHours">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#hasNumberOfECTS -->
+
+    <owl:DatatypeProperty rdf:about="&bowlogna;hasNumberOfECTS">
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#isTaughtInLang -->
+
+    <rdf:Description rdf:about="&bowlogna;isTaughtInLang">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Assignment -->
+
+    <owl:Class rdf:about="&teach;Assignment">
+        <owl:equivalentClass rdf:resource="&bowlogna;Learning_Activity"/>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Building -->
+
+    <owl:Class rdf:about="&teach;Building">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Course -->
+
+    <rdf:Description rdf:about="&teach;Course">
+        <owl:equivalentClass rdf:resource="&bowlogna;Subject"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Material -->
+
+    <owl:Class rdf:about="&teach;Material">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Module -->
+
+    <rdf:Description rdf:about="&teach;Module">
+        <owl:equivalentClass rdf:resource="&bowlogna;Module"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Room -->
+
+    <owl:Class rdf:about="&teach;Room">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Student -->
+
+    <rdf:Description rdf:about="&teach;Student">
+        <owl:equivalentClass rdf:resource="&bowlogna;Student"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#StudentGroup -->
+
+    <owl:Class rdf:about="&teach;StudentGroup">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#StudyProgram -->
+
+    <rdf:Description rdf:about="&teach;StudyProgram">
+        <owl:equivalentClass rdf:resource="&bowlogna;Study_Program"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Teacher -->
+
+    <rdf:Description rdf:about="&teach;Teacher">
+        <owl:equivalentClass rdf:resource="&bowlogna;Professor"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Assistant -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Assistant">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Person"/>
+        <rdfs:comment xml:lang="en">Represents assitants in a depertment, for example, a secretary or a student</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Bachelor_Of_Engineering_And_Architecture -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Engineering_And_Architecture">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:comment xml:lang="en">Bachelor degree of Engineerings and Architecture</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Bachelor_Of_Health_Science -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Health_Science">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:comment xml:lang="en">Bachelor degree of health science</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Bachelor_Of_Social_And_Legal_Science -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Social_And_Legal_Science">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:comment xml:lang="en">Bachelor of social and legal science</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Basic_Subject -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Basic_Subject">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Subject"/>
+        <rdfs:comment xml:lang="en">Basic Subject that every student has to pass in order to get a bachelor degree</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Cultural_Activities -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Cultural_Activities">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Subject"/>
+        <rdfs:comment xml:lang="en">Activities that are not related to the study program, but gave ECTS credit points</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Double_Bachelor_Degree -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Double_Bachelor_Degree">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/ebdo#hasCombinationOfBachelorDegrees"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Engineering_And_Architecture"/>
+                            <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Health_Science"/>
+                            <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Social_And_Legal_Science"/>
+                            <rdf:Description rdf:about="&bowlogna;Bachelor_Of_Arts"/>
+                            <rdf:Description rdf:about="&bowlogna;Bachelor_Of_Science"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">It could confer 2 bachelor degrees of different types. For example, bachelor in science, and bachelor in engineering.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Faculty -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Faculty">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <owl:disjointWith rdf:resource="&bowlogna;Subject"/>
+        <rdfs:comment xml:lang="en">Faculty that belongs to an University</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Obligatory_Subject -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Obligatory_Subject">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Subject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Private_University -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Private_University">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/ebdo#University"/>
+        <rdfs:comment xml:lang="en">Private University, can offer bachelor degrees that are not official</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Public_University -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Public_University">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/ebdo#University"/>
+        <rdfs:comment xml:lang="en">Public University, offers only official bachelor degrees</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Researcher -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Researcher">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Person"/>
+        <rdfs:comment xml:lang="en">Represent a researcher that works in a department</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Scholarship -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Scholarship">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="en">Amount of money that a student recives from an instution in order to help with the cost of studies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Subject_Coordinator -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Subject_Coordinator">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Professor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#University -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#University">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/ebdo#hasFaculty"/>
+                <owl:onClass rdf:resource="http://purl.org/net/ebdo#Faculty"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Institution that offers different bachelor degrees</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#University_Career -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#University_Career">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="en">A specific career offered by an University and that leads into a bachelor degree</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Bachelor -->
+
+    <owl:Class rdf:about="&bowlogna;Bachelor">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Bachelor_Of_Arts -->
+
+    <owl:Class rdf:about="&bowlogna;Bachelor_Of_Arts">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Bachelor_Of_Science -->
+
+    <owl:Class rdf:about="&bowlogna;Bachelor_Of_Science">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Bachelor_Thesis -->
+
+    <owl:Class rdf:about="&bowlogna;Bachelor_Thesis"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Basic_Module -->
+
+    <owl:Class rdf:about="&bowlogna;Basic_Module"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Complementary_Module -->
+
+    <owl:Class rdf:about="&bowlogna;Complementary_Module"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Department -->
+
+    <owl:Class rdf:about="&bowlogna;Department">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Document -->
+
+    <rdf:Description rdf:about="&bowlogna;Document">
+        <owl:equivalentClass rdf:resource="&foaf;Document"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#ECTS_Credits -->
+
+    <owl:Class rdf:about="&bowlogna;ECTS_Credits">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#External_Module -->
+
+    <owl:Class rdf:about="&bowlogna;External_Module"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Learning_Activity -->
+
+    <rdf:Description rdf:about="&bowlogna;Learning_Activity"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Module -->
+
+    <owl:Class rdf:about="&bowlogna;Module">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Obligatory_Module -->
+
+    <owl:Class rdf:about="&bowlogna;Obligatory_Module"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Optional_Module -->
+
+    <owl:Class rdf:about="&bowlogna;Optional_Module"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Optional_Subject -->
+
+    <owl:Class rdf:about="&bowlogna;Optional_Subject">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Subject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Person -->
+
+    <owl:Class rdf:about="&bowlogna;Person">
+        <owl:equivalentClass rdf:resource="&foaf;Person"/>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Professor -->
+
+    <owl:Class rdf:about="&bowlogna;Professor"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Semester -->
+
+    <owl:Class rdf:about="&bowlogna;Semester">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Student -->
+
+    <owl:Class rdf:about="&bowlogna;Student"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Study_Program -->
+
+    <owl:Class rdf:about="&bowlogna;Study_Program"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Study_Track -->
+
+    <owl:Class rdf:about="&bowlogna;Study_Track">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Subject -->
+
+    <owl:Class rdf:about="&bowlogna;Subject">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Thesis_Supervisor -->
+
+    <owl:Class rdf:about="&bowlogna;Thesis_Supervisor"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#Document -->
+
+    <rdf:Description rdf:about="&foaf;Document"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#Group -->
+
+    <rdf:Description rdf:about="&foaf;Group">
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#Person -->
+
+    <rdf:Description rdf:about="&foaf;Person">
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+
+<!-- Generated by the OWL API (version 3.2.0.1502) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,2172 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY swrlx "http://www.w3.org/2003/11/swrlx#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY teach "http://linkedscience.org/teach/ns#" >
+    <!ENTITY vocab "http://www.w3.org/1999/xhtml/vocab#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY bowlogna "http://diuf.unifr.ch/main/xi/bowlogna#" >
+    <!ENTITY ical "http://www.w3.org/2002/12/cal/icaltzd#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Ontology1324312315 "http://www.owl-ontologies.com/Ontology1324312315.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/net/ebdo#"
+     xml:base="http://purl.org/net/ebdo"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/#"
+     xmlns:Ontology1324312315="http://www.owl-ontologies.com/Ontology1324312315.owl#"
+     xmlns:swrlx="http://www.w3.org/2003/11/swrlx#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:teach="http://linkedscience.org/teach/ns#"
+     xmlns:bowlogna="http://diuf.unifr.ch/main/xi/bowlogna#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ical="http://www.w3.org/2002/12/cal/icaltzd#"
+     xmlns:vocab="http://www.w3.org/1999/xhtml/vocab#">
+    <owl:Ontology rdf:about="http://purl.org/net/ebdo">
+        <terms:creator rdf:datatype="&xsd;string">Jonatan Rengel Quiroga</terms:creator>
+        <rdfs:comment rdf:datatype="&xsd;string">Red de ontologias desarrollada como parte de un proyecto fin de carrera en Ingenieria Informatica por la Universidad Politecnica de Madrid. El desarrollo de esta red de ontologias ha seguido la metodologa NeOn (http://oa.upm.es/3879/)</rdfs:comment>
+        <owl:versionInfo rdf:datatype="&xsd;string">Version 1.0    01-06-2015</owl:versionInfo>
+        <rdfs:comment xml:lang="en">Ontology network developed as part of a computer science bachelor project in Universidad Politecnica de Madrid. The development of this ontology network has followed the NeOn Methodology (http://oa.upm.es/3879/ )</rdfs:comment>
+        <rdfs:comment xml:lang="en">This work is licensed under a Creative Commons License. This copyright applies to the European Bacherlor Degree Ontology and accompanying documentation
+(http://creativecommons.org/licenses/by/4.0/)</rdfs:comment>
+        <owl:imports rdf:resource="http://diuf.unifr.ch/main/xi/bowlogna"/>
+        <owl:imports rdf:resource="http://linkedscience.org/teach/ns#"/>
+        <owl:imports rdf:resource="http://www.w3.org/2002/12/cal/icaltzd"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&teach;academicTerm">
+        <rdfs:domain rdf:resource="&teach;Course"/>
+    </rdf:Description>
+    <owl:AnnotationProperty rdf:about="&Ontology1324312315;isTaughtInLang"/>
+    <owl:AnnotationProperty rdf:about="&teach;hasTitle"/>
+    <owl:AnnotationProperty rdf:about="&teach;hasDescription"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#arrangedAt -->
+
+    <rdf:Description rdf:about="&teach;arrangedAt">
+        <rdfs:range rdf:resource="&ical;Vevent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#building -->
+
+    <rdf:Description rdf:about="&teach;building">
+        <rdfs:range rdf:resource="&teach;Building"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#module -->
+
+    <rdf:Description rdf:about="&teach;module">
+        <rdfs:range rdf:resource="&teach;Module"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#room -->
+
+    <rdf:Description rdf:about="&teach;room">
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&teach;Room"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#studyProgram -->
+
+    <rdf:Description rdf:about="&teach;studyProgram">
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&teach;StudyProgram"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/ebdo#belongsToUniversity -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#belongsToUniversity">
+        <rdfs:comment xml:lang="en">property that indicates that a Faculty belongs to a certain University</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#University"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#University_Career"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#grants -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#grants">
+        <rdfs:comment xml:lang="en">property that indicates that a university grants bachelor degrees</rdfs:comment>
+        <rdfs:range rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#University"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasAssignment -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasAssignment">
+        <rdfs:comment xml:lang="en">Assignments of a subject. This property is listed in the TEACH ontology documentation, although is not part of the ontology, reference: http://linkedscience.org/teach/ns/</rdfs:comment>
+        <rdfs:range rdf:resource="&teach;Assignment"/>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasAssignmentMaterial -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasAssignmentMaterial">
+        <rdfs:comment xml:lang="en">This property represents that an assignment of a course can have materials, like book references, slides, etc. This property is listed in the TEACH ontology documentation, although is not part of the ontology, reference: http://linkedscience.org/teach/ns/</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Assignment"/>
+        <rdfs:range rdf:resource="&teach;Material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasCombinationOfBachelorDegrees -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasCombinationOfBachelorDegrees">
+        <rdfs:comment xml:lang="en">This property represent that a double bachelor degree, is the combination of two bachelor degrees</rdfs:comment>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#Double_Bachelor_Degree"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&bowlogna;Bachelor_Of_Arts"/>
+                    <rdf:Description rdf:about="&bowlogna;Bachelor_Of_Science"/>
+                    <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Engineering_And_Architecture"/>
+                    <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Health_Science"/>
+                    <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Social_And_Legal_Science"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasCourseMaterial -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasCourseMaterial">
+        <rdfs:comment xml:lang="en">This property represents, that a subject/course has work material. This property is listed in the TEACH ontology documentation, although is not part of the ontology, reference: http://linkedscience.org/teach/ns/</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&teach;Material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasDepartment -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasDepartment">
+        <rdfs:comment xml:lang="en">This property represents that a Faculty is composed of departments</rdfs:comment>
+        <rdfs:range rdf:resource="&bowlogna;Department"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#Faculty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasFaculty -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasFaculty">
+        <rdfs:comment xml:lang="en">This property represents that a University is composed of Faculties</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#Faculty"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#University"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasLecture -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#hasLecture">
+        <rdfs:comment xml:lang="en">This property represents that a course/subject is composed of Lectures. </rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&teach;Lecture"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isComposedOfBasicSubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isComposedOfBasicSubject">
+        <rdfs:comment xml:lang="en">This property represents that a basic module is composed of basic subjects</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Basic_Module"/>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/ebdo#isComposedOfSubject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isComposedOfComplementarySubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isComposedOfComplementarySubject">
+        <rdfs:comment xml:lang="en">This property represents that a complementary module is composed of complementary subjects such as cultural activities</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Complementary_Module"/>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#Cultural_Activities"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/ebdo#isComposedOfSubject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isComposedOfObligatorySubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isComposedOfObligatorySubject">
+        <rdfs:comment xml:lang="en">This property represents that an obligatory module is composed of obligatory subjects</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Obligatory_Module"/>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/ebdo#isComposedOfSubject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isComposedOfOptionalSubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isComposedOfOptionalSubject">
+        <rdfs:comment xml:lang="en">This property represents that an optinal module is composed of optional subjects</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Optional_Module"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/ebdo#isComposedOfSubject"/>
+        <rdfs:range rdf:resource="&Ontology1324312315;Optional_Subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isComposedOfSubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isComposedOfSubject">
+        <rdfs:comment xml:lang="en">This property represents that the modules are composed of subjects</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Module"/>
+        <rdfs:range rdf:resource="&Ontology1324312315;Subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isStructured -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isStructured">
+        <rdfs:comment xml:lang="en">This property represents that a Bachelor is structured in modules, this informatio could be reflected in the study program</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:range rdf:resource="&bowlogna;Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isTaughtInSemester -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#isTaughtInSemester">
+        <rdfs:comment xml:lang="en">This property represents that a subject/course is taught in a specific semester (eg Summer semester 2015).</rdfs:comment>
+        <rdfs:range rdf:resource="&Ontology1324312315;Semester"/>
+        <rdfs:domain rdf:resource="&Ontology1324312315;Subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#leadsInto -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#leadsInto">
+        <rdfs:comment xml:lang="en">This property represents that a university career, leads into a bachelor degree</rdfs:comment>
+        <rdfs:range rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/ebdo#University_Career"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#participatesInSubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#participatesInSubject">
+        <rdfs:comment xml:lang="en">This property represents that a sutudent is registered to participate in a subject</rdfs:comment>
+        <rdfs:domain rdf:resource="&Ontology1324312315;Student"/>
+        <rdfs:range rdf:resource="&Ontology1324312315;Subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#receivesScholarship -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/ebdo#receivesScholarship">
+        <rdfs:comment xml:lang="en">property that indicates when a student recives a scholarship</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/net/ebdo#Scholarship"/>
+        <rdfs:domain rdf:resource="&Ontology1324312315;Student"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#endsBachelorStudiesOn -->
+
+    <owl:ObjectProperty rdf:about="&Ontology1324312315;endsBachelorStudiesOn"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#enrolledForBachelorStudiesOn -->
+
+    <owl:ObjectProperty rdf:about="&Ontology1324312315;enrolledForBachelorStudiesOn"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#isAComponentOf -->
+
+    <owl:ObjectProperty rdf:about="&Ontology1324312315;isAComponentOf"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#isAffiliatedWithDepartment -->
+
+    <owl:ObjectProperty rdf:about="&Ontology1324312315;isAffiliatedWithDepartment"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#isInStudyTrack -->
+
+    <owl:ObjectProperty rdf:about="&Ontology1324312315;isInStudyTrack"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/ebdo#academicTerm -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#academicTerm">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#bookingNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#bookingNumber">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#courseDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#courseDescription">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#courseTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#courseTitle">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#deadline -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#deadline">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#deadlineDraftReport -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#deadlineDraftReport">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#deadlineFinalReport -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#deadlineFinalReport">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#deadlineReviewReport -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#deadlineReviewReport">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#finishOfEnrollmentPeriod -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#finishOfEnrollmentPeriod">
+        <rdfs:comment xml:lang="en">This property represents the date when the enrollment period ends</rdfs:comment>
+        <rdfs:domain rdf:resource="&Ontology1324312315;Semester"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#grading -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#grading">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#hasDescription">
+        <rdfs:comment rdf:datatype="&xsd;string">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasPrerequisite -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#hasPrerequisite">
+        <rdfs:comment xml:lang="en">This property represent the prerequisites that a subject/course has in order to participate in it</rdfs:comment>
+        <rdfs:domain rdf:resource="&Ontology1324312315;Subject"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasTeachingMethod -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#hasTeachingMethod">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#hasTitle">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#isOfficial -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#isOfficial">
+        <rdfs:comment xml:lang="en">In a case of an official degree (TRUE), it means that the bachelor degree is recognized by the government, in other case (FALSE) it is not recognized by the government. Only private universities can grant not official bachelor degrees.</rdfs:comment>
+        <rdfs:domain rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#nextReading -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#nextReading">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#notArrangedAt -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#notArrangedAt">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#reading -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#reading">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#reportTemplate -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#reportTemplate">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#reviewTemplate -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#reviewTemplate">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#startOfEnrollmentPeriod -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#startOfEnrollmentPeriod">
+        <rdfs:comment xml:lang="en">This property represents the date when the enrollment period starts </rdfs:comment>
+        <rdfs:domain rdf:resource="&Ontology1324312315;Semester"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/ebdo#weeklyHours -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/ebdo#weeklyHours">
+        <rdfs:comment xml:lang="en">This property is part of the TEACH ontology, is described here: http://linkedscience.org/teach/ns/
+In this case, it was considered to transform it into a data property</rdfs:comment>
+        <rdfs:domain rdf:resource="&teach;Course"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#hasNumberOfECTS -->
+
+    <owl:DatatypeProperty rdf:about="&Ontology1324312315;hasNumberOfECTS">
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#isTaughtInLang -->
+
+    <rdf:Description rdf:about="&Ontology1324312315;isTaughtInLang">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Bachelor -->
+
+    <owl:Class rdf:about="&bowlogna;Bachelor">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Bachelor_Of_Arts -->
+
+    <owl:Class rdf:about="&bowlogna;Bachelor_Of_Arts">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Bachelor_Of_Science -->
+
+    <owl:Class rdf:about="&bowlogna;Bachelor_Of_Science">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Basic_Module -->
+
+    <owl:Class rdf:about="&bowlogna;Basic_Module"/>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Complementary_Module -->
+
+    <owl:Class rdf:about="&bowlogna;Complementary_Module"/>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Department -->
+
+    <owl:Class rdf:about="&bowlogna;Department">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Document -->
+
+    <rdf:Description rdf:about="&bowlogna;Document">
+        <owl:equivalentClass rdf:resource="&foaf;Document"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#ECTS_Credits -->
+
+    <owl:Class rdf:about="&bowlogna;ECTS_Credits">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#External_Module -->
+
+    <owl:Class rdf:about="&bowlogna;External_Module"/>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Learning_Activity -->
+
+    <rdf:Description rdf:about="&bowlogna;Learning_Activity">
+        <owl:equivalentClass rdf:resource="&teach;Assignment"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Module -->
+
+    <owl:Class rdf:about="&bowlogna;Module">
+        <owl:equivalentClass rdf:resource="&teach;Module"/>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Obligatory_Module -->
+
+    <owl:Class rdf:about="&bowlogna;Obligatory_Module"/>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Optional_Module -->
+
+    <owl:Class rdf:about="&bowlogna;Optional_Module"/>
+    
+
+
+    <!-- http://diuf.unifr.ch/main/xi/bowlogna#Study_Program -->
+
+    <rdf:Description rdf:about="&bowlogna;Study_Program">
+        <owl:equivalentClass rdf:resource="&teach;StudyProgram"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Assignment -->
+
+    <owl:Class rdf:about="&teach;Assignment">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Building -->
+
+    <owl:Class rdf:about="&teach;Building">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Course -->
+
+    <rdf:Description rdf:about="&teach;Course">
+        <owl:equivalentClass rdf:resource="&Ontology1324312315;Subject"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Material -->
+
+    <owl:Class rdf:about="&teach;Material">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Module -->
+
+    <rdf:Description rdf:about="&teach;Module"/>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Room -->
+
+    <owl:Class rdf:about="&teach;Room">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Student -->
+
+    <rdf:Description rdf:about="&teach;Student">
+        <owl:equivalentClass rdf:resource="&Ontology1324312315;Student"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#StudentGroup -->
+
+    <owl:Class rdf:about="&teach;StudentGroup">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#StudyProgram -->
+
+    <rdf:Description rdf:about="&teach;StudyProgram"/>
+    
+
+
+    <!-- http://linkedscience.org/teach/ns#Teacher -->
+
+    <rdf:Description rdf:about="&teach;Teacher">
+        <owl:equivalentClass rdf:resource="&Ontology1324312315;Professor"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Assistant -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Assistant">
+        <rdfs:subClassOf rdf:resource="&Ontology1324312315;Person"/>
+        <rdfs:comment xml:lang="en">Represents assitants in a depertment, for example, a secretary or a student</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Bachelor_Of_Engineering_And_Architecture -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Engineering_And_Architecture">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:comment xml:lang="en">Bachelor degree of Engineerings and Architecture</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Bachelor_Of_Health_Science -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Health_Science">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:comment xml:lang="en">Bachelor degree of health science</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Bachelor_Of_Social_And_Legal_Science -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Social_And_Legal_Science">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:comment xml:lang="en">Bachelor of social and legal science</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Basic_Subject -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Basic_Subject">
+        <rdfs:subClassOf rdf:resource="&Ontology1324312315;Subject"/>
+        <rdfs:comment xml:lang="en">Basic Subject that every student has to pass in order to get a bachelor degree</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Cultural_Activities -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Cultural_Activities">
+        <rdfs:subClassOf rdf:resource="&Ontology1324312315;Subject"/>
+        <rdfs:comment xml:lang="en">Activities that are not related to the study program, but gave ECTS credit points</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Double_Bachelor_Degree -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Double_Bachelor_Degree">
+        <rdfs:subClassOf rdf:resource="&bowlogna;Bachelor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/ebdo#hasCombinationOfBachelorDegrees"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&bowlogna;Bachelor_Of_Arts"/>
+                            <rdf:Description rdf:about="&bowlogna;Bachelor_Of_Science"/>
+                            <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Engineering_And_Architecture"/>
+                            <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Health_Science"/>
+                            <rdf:Description rdf:about="http://purl.org/net/ebdo#Bachelor_Of_Social_And_Legal_Science"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">It could confer 2 bachelor degrees of different types. For example, bachelor in science, and bachelor in engineering.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Faculty -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Faculty">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <owl:disjointWith rdf:resource="&Ontology1324312315;Subject"/>
+        <rdfs:comment xml:lang="en">Faculty that belongs to an University</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Obligatory_Subject -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Obligatory_Subject">
+        <rdfs:subClassOf rdf:resource="&Ontology1324312315;Subject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Private_University -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Private_University">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/ebdo#University"/>
+        <rdfs:comment xml:lang="en">Private University, can offer bachelor degrees that are not official</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Public_University -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Public_University">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/ebdo#University"/>
+        <rdfs:comment xml:lang="en">Public University, offers only official bachelor degrees</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Researcher -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Researcher">
+        <rdfs:subClassOf rdf:resource="&Ontology1324312315;Person"/>
+        <rdfs:comment xml:lang="en">Represent a researcher that works in a department</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Scholarship -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Scholarship">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="en">Amount of money that a student recives from an instution in order to help with the cost of studies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Subject_Coordinator -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#Subject_Coordinator">
+        <rdfs:subClassOf rdf:resource="&Ontology1324312315;Professor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#University -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#University">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/ebdo#hasFaculty"/>
+                <owl:onClass rdf:resource="http://purl.org/net/ebdo#Faculty"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Institution that offers different bachelor degrees</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/ebdo#University_Career -->
+
+    <owl:Class rdf:about="http://purl.org/net/ebdo#University_Career">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="en">A specific career offered by an University and that leads into a bachelor degree</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Bachelor_Thesis -->
+
+    <owl:Class rdf:about="&Ontology1324312315;Bachelor_Thesis"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Optional_Subject -->
+
+    <owl:Class rdf:about="&Ontology1324312315;Optional_Subject">
+        <rdfs:subClassOf rdf:resource="&Ontology1324312315;Subject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Person -->
+
+    <owl:Class rdf:about="&Ontology1324312315;Person">
+        <owl:equivalentClass rdf:resource="&foaf;Person"/>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Professor -->
+
+    <owl:Class rdf:about="&Ontology1324312315;Professor"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Semester -->
+
+    <owl:Class rdf:about="&Ontology1324312315;Semester">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Student -->
+
+    <owl:Class rdf:about="&Ontology1324312315;Student"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Study_Track -->
+
+    <owl:Class rdf:about="&Ontology1324312315;Study_Track">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Subject -->
+
+    <owl:Class rdf:about="&Ontology1324312315;Subject">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1324312315.owl#Thesis_Supervisor -->
+
+    <owl:Class rdf:about="&Ontology1324312315;Thesis_Supervisor"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#Document -->
+
+    <rdf:Description rdf:about="&foaf;Document"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#Group -->
+
+    <rdf:Description rdf:about="&foaf;Group">
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/#Person -->
+
+    <rdf:Description rdf:about="&foaf;Person">
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/ebdo#Administracion_de_Sistemas_Informaticos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Administracion_de_Sistemas_Informaticos">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000283</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Algebra_Lineal -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Algebra_Lineal">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000235</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Algoritmica_Numerica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Algoritmica_Numerica">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000259</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Algoritmica_Numerica_II -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Algoritmica_Numerica_II">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000266</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Algoritmos_Geometricos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Algoritmos_Geometricos">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000321</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Algoritmos_y_Estructura_de_Datos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Algoritmos_y_Estructura_de_Datos">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000248</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Alumno1 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Alumno1">
+        <rdf:type rdf:resource="&Ontology1324312315;Student"/>
+        <Ontology1324312315:enrolledForBachelorStudiesOn rdf:resource="http://purl.org/net/ebdo#Febrero-Junio_2014-15"/>
+        <participatesInSubject rdf:resource="http://purl.org/net/ebdo#Ingenieria_del_Software_II"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Aplicaciones_Numericas_de_la_Informatica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Aplicaciones_Numericas_de_la_Informatica">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000267</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Aplicaciones_de_la_Biometria_de_la_Voz -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Aplicaciones_de_la_Biometria_de_la_Voz">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000317</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Arquitectura_de_Computadores -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Arquitectura_de_Computadores">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000254</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Arquitectura_del_Data_Warehouse -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Arquitectura_del_Data_Warehouse">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000320</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Arquitectura_y_Tecnologia_de_Sistemas_Informaticos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Arquitectura_y_Tecnologia_de_Sistemas_Informaticos">
+        <rdf:type rdf:resource="&bowlogna;Department"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Aula_6105 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Aula_6105">
+        <rdf:type rdf:resource="&teach;Room"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Base_de_Datos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Base_de_Datos">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000249</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Bloque_6 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Bloque_6">
+        <rdf:type rdf:resource="&teach;Building"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Building_Up_Communications_Skills -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Building_Up_Communications_Skills">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000272</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Calculo -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Calculo">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000234</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Computacion_de_Alto_Rendimiento -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Computacion_de_Alto_Rendimiento">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000290</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Computadores_Personales -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Computadores_Personales">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000273</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Concurrencia -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Concurrencia">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000246</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Coordinador_Ingenieria_del_Software_II -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Coordinador_Ingenieria_del_Software_II">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Subject_Coordinator"/>
+        <teach:teacherOf rdf:resource="http://purl.org/net/ebdo#Ingenieria_del_Software_II"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Departamento_Inteligencia_Artificial -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Departamento_Inteligencia_Artificial">
+        <rdf:type rdf:resource="&bowlogna;Department"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Diseno_de_Aplicaciones_Web -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Diseno_de_Aplicaciones_Web">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Ecuaciones_Diferenciales_Metodos_y_Modelos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Ecuaciones_Diferenciales_Metodos_y_Modelos">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000280</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#English_for_Professional_and_Academic_Communication -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#English_for_Professional_and_Academic_Communication">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000239</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Escuela_Tecnica_Superior_de_Ingenieros_Informaticos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Escuela_Tecnica_Superior_de_Ingenieros_Informaticos">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Faculty"/>
+        <hasDepartment rdf:resource="http://purl.org/net/ebdo#Arquitectura_y_Tecnologia_de_Sistemas_Informaticos"/>
+        <hasDepartment rdf:resource="http://purl.org/net/ebdo#Departamento_Inteligencia_Artificial"/>
+        <hasDepartment rdf:resource="http://purl.org/net/ebdo#Lenguajes_y_Sistemas_Informaticos_e_Ingenieria_del_Software"/>
+        <hasDepartment rdf:resource="http://purl.org/net/ebdo#Matematica_Aplicada"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Espanol_Profesional_y_Academico -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Espanol_Profesional_y_Academico">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000271</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Estructura_de_Computadores -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Estructura_de_Computadores">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000253</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Febrero-Junio_2014-15 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Febrero-Junio_2014-15">
+        <rdf:type rdf:resource="&Ontology1324312315;Semester"/>
+        <startOfEnrollmentPeriod rdf:datatype="&xsd;dateTime">2015-01-26T00:00:00
+</startOfEnrollmentPeriod>
+        <finishOfEnrollmentPeriod rdf:datatype="&xsd;dateTime">2015-01-31T00:00:00</finishOfEnrollmentPeriod>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Fotografia_Computacional -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Fotografia_Computacional">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000318</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Fundamentos_Fisicos_y_Tecnologicos_de_la_Informatica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Fundamentos_Fisicos_y_Tecnologicos_de_la_Informatica">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000230</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Fundamentos_de_Economia_y_Administracion_de_Empresas -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Fundamentos_de_Economia_y_Administracion_de_Empresas">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000154</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Fundamentos_de_Gestion_de_Tecnologias_de_la_Informacion_en_la_Empresa -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Fundamentos_de_Gestion_de_Tecnologias_de_la_Informacion_en_la_Empresa">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000155</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Geometria_3D_para_Informatica_Grafica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Geometria_3D_para_Informatica_Grafica">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000288</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Gestion_de_Procesos_de_Tecnologias_de_la_Informacion -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Gestion_de_Procesos_de_Tecnologias_de_la_Informacion">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000238</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Grado_en_Ingenieria_Informatica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Grado_en_Ingenieria_Informatica">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Bachelor_Of_Engineering_And_Architecture"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Grado en Ingenieria Informatica de la Universidad Politecnica de madrid</rdfs:comment>
+        <isOfficial rdf:datatype="&xsd;boolean">false</isOfficial>
+        <isStructured rdf:resource="http://purl.org/net/ebdo#Modulo_Basico"/>
+        <isStructured rdf:resource="http://purl.org/net/ebdo#Modulo_Obligatorio"/>
+        <isStructured rdf:resource="http://purl.org/net/ebdo#Modulo_Opcional"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Grupo_IS2_8F1T -->
+
+    <foaf:Group rdf:about="http://purl.org/net/ebdo#Grupo_IS2_8F1T">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <foaf:member rdf:resource="http://purl.org/net/ebdo#Alumno1"/>
+    </foaf:Group>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Horario_Ingenieria_del_Software_II_Lunes -->
+
+    <ical:Vevent rdf:about="http://purl.org/net/ebdo#Horario_Ingenieria_del_Software_II_Lunes">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <ical:dtstart rdf:datatype="&xsd;dateTime">2015-02-02T016:00:00</ical:dtstart>
+        <ical:dtend rdf:datatype="&xsd;dateTime">2015-06-01T016:50:00</ical:dtend>
+        <ical:rrule rdf:resource="http://purl.org/net/ebdo#repeticion_semanal"/>
+    </ical:Vevent>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Horario_Ingenieria_del_Software_II_Miercoles -->
+
+    <ical:Vevent rdf:about="http://purl.org/net/ebdo#Horario_Ingenieria_del_Software_II_Miercoles">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <ical:dtstart rdf:datatype="&xsd;dateTime">2015-02-04T015:00:00</ical:dtstart>
+        <ical:dtend rdf:datatype="&xsd;dateTime">2015-06-03T016:50:00</ical:dtend>
+        <ical:rrule rdf:resource="http://purl.org/net/ebdo#repeticion_semanal"/>
+    </ical:Vevent>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Informatica_Industrial -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Informatica_Industrial">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000261</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Ingenieria_Informatica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Ingenieria_Informatica">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#University_Career"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Ingenieria_de_Integracion_Tecnologica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Ingenieria_de_Integracion_Tecnologica">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000319</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Ingenieria_del_Software_I -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Ingenieria_del_Software_I">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000251</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Ingenieria_del_Software_II -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Ingenieria_del_Software_II">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000252</bookingNumber>
+        <academicTerm rdf:datatype="&xsd;string">2014-2015</academicTerm>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+        <hasPrerequisite rdf:datatype="&xsd;string">Ingenieria del Software I y Bases de Datos</hasPrerequisite>
+        <courseDescription rdf:datatype="&xsd;string">Ingenieria del Software, Sistemas de Informacion y Sistemas Inteligentes</courseDescription>
+        <grading rdf:datatype="&xsd;string">La asignatura se basa en el sistema de 
+evaluacion continua. La evaluacion sera parcial y acumulativa.</grading>
+        <teach:room rdf:resource="http://purl.org/net/ebdo#Aula_6105"/>
+        <teach:building rdf:resource="http://purl.org/net/ebdo#Bloque_6"/>
+        <teach:teacher rdf:resource="http://purl.org/net/ebdo#Coordinador_Ingenieria_del_Software_II"/>
+        <isTaughtInSemester rdf:resource="http://purl.org/net/ebdo#Febrero-Junio_2014-15"/>
+        <teach:studentGroup rdf:resource="http://purl.org/net/ebdo#Grupo_IS2_8F1T"/>
+        <teach:arrangedAt rdf:resource="http://purl.org/net/ebdo#Horario_Ingenieria_del_Software_II_Lunes"/>
+        <teach:arrangedAt rdf:resource="http://purl.org/net/ebdo#Horario_Ingenieria_del_Software_II_Miercoles"/>
+        <hasAssignment rdf:resource="http://purl.org/net/ebdo#Memoria_de_practicas"/>
+        <teach:module rdf:resource="http://purl.org/net/ebdo#Modulo_Obligatorio"/>
+        <hasAssignment rdf:resource="http://purl.org/net/ebdo#Participacion_en_clase"/>
+        <teach:studyProgram rdf:resource="http://purl.org/net/ebdo#Plan_10IF-Grado_en_Ingenieria_Informatica"/>
+        <hasAssignment rdf:resource="http://purl.org/net/ebdo#Presentaciones"/>
+        <teach:teacher rdf:resource="http://purl.org/net/ebdo#Profesor1_Ingenieria_del_Software_II"/>
+        <teach:teacher rdf:resource="http://purl.org/net/ebdo#Profesor2_Ingenieria_del_Software_II"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Inteligencia_Artificial -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Inteligencia_Artificial">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000250</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Interaccion_Persona-Ordenador -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Interaccion_Persona-Ordenador">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000159</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Investigacion_Operativa -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Investigacion_Operativa">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000262</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Lenguajes_Formales_Automatas_y_Computabilidad -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Lenguajes_Formales_Automatas_y_Computabilidad">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000242</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Lenguajes_y_Sistemas_Informaticos_e_Ingenieria_del_Software -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Lenguajes_y_Sistemas_Informaticos_e_Ingenieria_del_Software">
+        <rdf:type rdf:resource="&bowlogna;Department"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Logica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Logica">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000231</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Matematica_Aplicada -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Matematica_Aplicada">
+        <rdf:type rdf:resource="&bowlogna;Department"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Matematica_Discreta_I -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Matematica_Discreta_I">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000232</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Matematica_Discreta_II -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Matematica_Discreta_II">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000233</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Memoria_de_practicas -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Memoria_de_practicas">
+        <rdf:type rdf:resource="&teach;Assignment"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema1_Introduccion_a_procesos"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema2_Estimacion_y_planificacion_de_proyectos_software"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema3_Gestion_de_configuracion"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema4_Gestion_de_calidad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Middleware -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Middleware">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000268</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Mineria_de_Datos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Mineria_de_Datos">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000322</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Modulo_Basico -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Modulo_Basico">
+        <rdf:type rdf:resource="&bowlogna;Basic_Module"/>
+        <isComposedOfBasicSubject rdf:resource="http://purl.org/net/ebdo#Algebra_Lineal"/>
+        <isComposedOfBasicSubject rdf:resource="http://purl.org/net/ebdo#Algoritmica_Numerica"/>
+        <isComposedOfBasicSubject rdf:resource="http://purl.org/net/ebdo#Calculo"/>
+        <isComposedOfBasicSubject rdf:resource="http://purl.org/net/ebdo#Fundamentos_Fisicos_y_Tecnologicos_de_la_Informatica"/>
+        <isComposedOfBasicSubject rdf:resource="http://purl.org/net/ebdo#Fundamentos_de_Economia_y_Administracion_de_Empresas"/>
+        <isComposedOfBasicSubject rdf:resource="http://purl.org/net/ebdo#Fundamentos_de_Gestion_de_Tecnologias_de_la_Informacion_en_la_Empresa"/>
+        <isComposedOfBasicSubject rdf:resource="http://purl.org/net/ebdo#Logica"/>
+        <isComposedOfBasicSubject rdf:resource="http://purl.org/net/ebdo#Matematica_Discreta_I"/>
+        <isComposedOfBasicSubject rdf:resource="http://purl.org/net/ebdo#Probabiliddad_y_Estadistica_I"/>
+        <isComposedOfBasicSubject rdf:resource="http://purl.org/net/ebdo#Programacion_I"/>
+        <isComposedOfBasicSubject rdf:resource="http://purl.org/net/ebdo#Sistemas_Digitales"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Modulo_Obligatorio -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Modulo_Obligatorio">
+        <rdf:type rdf:resource="&bowlogna;Obligatory_Module"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Algoritmos_y_Estructura_de_Datos"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Arquitectura_de_Computadores"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Base_de_Datos"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Concurrencia"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#English_for_Professional_and_Academic_Communication"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Estructura_de_Computadores"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Gestion_de_Procesos_de_Tecnologias_de_la_Informacion"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Ingenieria_del_Software_I"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Ingenieria_del_Software_II"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Inteligencia_Artificial"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Interaccion_Persona-Ordenador"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Lenguajes_Formales_Automatas_y_Computabilidad"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Matematica_Discreta_II"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Probabilidad_y_Estadistica_II"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Procesadores_de_Lenguajes"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Programacion_Declarativa_Logica_y_Restricciones"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Programacion_II"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Programacion_para_Sistemas"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Proyecto_de_Instalacion_Informatica"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Redes_de_Computadores"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Seguridad_de_las_Tecnologias_de_la_Informacion"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Sistemas_Distribuidos"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Sistemas_Operativos"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Sistemas_Orientados_a_Servicios"/>
+        <isComposedOfObligatorySubject rdf:resource="http://purl.org/net/ebdo#Trabajo_Fin_de_Grado"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Modulo_Opcional -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Modulo_Opcional">
+        <rdf:type rdf:resource="&bowlogna;Optional_Module"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Administracion_de_Sistemas_Informaticos"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Algoritmica_Numerica_II"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Algoritmos_Geometricos"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Aplicaciones_Numericas_de_la_Informatica"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Aplicaciones_de_la_Biometria_de_la_Voz"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Arquitectura_del_Data_Warehouse"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Building_Up_Communications_Skills"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Computacion_de_Alto_Rendimiento"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Computadores_Personales"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Diseno_de_Aplicaciones_Web"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Ecuaciones_Diferenciales_Metodos_y_Modelos"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Espanol_Profesional_y_Academico"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Fotografia_Computacional"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Geometria_3D_para_Informatica_Grafica"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Informatica_Industrial"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Ingenieria_de_Integracion_Tecnologica"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Investigacion_Operativa"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Middleware"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Mineria_de_Datos"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Nanotecnologia"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Practicum"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Procesamiento_Digital_de_la_Senal"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Reconocimiento_de_Formas"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Robotica_y_Percepcion_Computacional"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Sistemas_Dinamicos_Caos_y_Fractales"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Sistemas_Inteligentes"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Sistemas_Optoelectronicos"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Sistemas_de_Planificacion"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Tecnicas_de_Computacion_Cientifica"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Tecnologia_de_Red_Cisco_CNNA"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Tecnologias_de_Comunicacion_Inalambrica"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Teoria_de_la_Computabilidad"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Traductores_de_Lenguajes"/>
+        <isComposedOfOptionalSubject rdf:resource="http://purl.org/net/ebdo#Web_Semantica_y_Linked_Data"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Nanotecnologia -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Nanotecnologia">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000306</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Nivelacion_de_Ingles -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Nivelacion_de_Ingles">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000305</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Participacion_en_clase -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Participacion_en_clase">
+        <rdf:type rdf:resource="&teach;Assignment"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema1_Introduccion_a_procesos"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema2_Estimacion_y_planificacion_de_proyectos_software"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema3_Gestion_de_configuracion"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema4_Gestion_de_calidad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Plan_10IF-Grado_en_Ingenieria_Informatica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Plan_10IF-Grado_en_Ingenieria_Informatica">
+        <rdf:type rdf:resource="&bowlogna;Document"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Plan_10II-Grado_en_Ingenieria_Informatica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Plan_10II-Grado_en_Ingenieria_Informatica">
+        <rdf:type rdf:resource="&bowlogna;Study_Program"/>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">240</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Practicum -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Practicum">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000299</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">12</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Presentaciones -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Presentaciones">
+        <rdf:type rdf:resource="&teach;Assignment"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema1_Introduccion_a_procesos"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema2_Estimacion_y_planificacion_de_proyectos_software"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema3_Gestion_de_configuracion"/>
+        <Ontology1324312315:contributeTo rdf:resource="http://purl.org/net/ebdo#Tema4_Gestion_de_calidad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Probabilidad_y_Estadistica_II -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Probabilidad_y_Estadistica_II">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000237</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Probabiliddad_y_Estadistica_I -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Probabiliddad_y_Estadistica_I">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000236</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Procesadores_de_Lenguajes -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Procesadores_de_Lenguajes">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000247</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Procesamiento_Digital_de_la_Senal -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Procesamiento_Digital_de_la_Senal">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000269</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Profesor1_Ingenieria_del_Software_II -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Profesor1_Ingenieria_del_Software_II">
+        <rdf:type rdf:resource="&Ontology1324312315;Professor"/>
+        <teach:teacherOf rdf:resource="http://purl.org/net/ebdo#Ingenieria_del_Software_II"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Profesor2_Ingenieria_del_Software_II -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Profesor2_Ingenieria_del_Software_II">
+        <rdf:type rdf:resource="&Ontology1324312315;Professor"/>
+        <teach:teacherOf rdf:resource="http://purl.org/net/ebdo#Ingenieria_del_Software_II"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Programacion_Declarativa_Logica_y_Restricciones -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Programacion_Declarativa_Logica_y_Restricciones">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000245</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Programacion_I -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Programacion_I">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000241</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Programacion_II -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Programacion_II">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000243</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Programacion_para_Sistemas -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Programacion_para_Sistemas">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000244</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Proyecto_de_Instalacion_Informatica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Proyecto_de_Instalacion_Informatica">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000260</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Reconocimiento_de_Formas -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Reconocimiento_de_Formas">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000286</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Redes_de_Computadores -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Redes_de_Computadores">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000255</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Robotica_y_Percepcion_Computacional -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Robotica_y_Percepcion_Computacional">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000294</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Seguridad_de_las_Tecnologias_de_la_Informacion -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Seguridad_de_las_Tecnologias_de_la_Informacion">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000256</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Septiembre-Enero_2014-2015 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Septiembre-Enero_2014-2015">
+        <rdf:type rdf:resource="&Ontology1324312315;Semester"/>
+        <startOfEnrollmentPeriod rdf:datatype="&xsd;dateTime">2014-07-21T00:00:00</startOfEnrollmentPeriod>
+        <finishOfEnrollmentPeriod rdf:datatype="&xsd;dateTime">2014-08-01T00:00:00</finishOfEnrollmentPeriod>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Sistemas_Digitales -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Sistemas_Digitales">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Basic_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000240</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Sistemas_Dinamicos_Caos_y_Fractales -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Sistemas_Dinamicos_Caos_y_Fractales">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000297</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Sistemas_Distribuidos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Sistemas_Distribuidos">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000257</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Sistemas_Inteligentes -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Sistemas_Inteligentes">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000270</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Sistemas_Operativos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Sistemas_Operativos">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000156</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Sistemas_Optoelectronicos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Sistemas_Optoelectronicos">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000263</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Sistemas_Orientados_a_Servicios -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Sistemas_Orientados_a_Servicios">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000258</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Sistemas_de_Planificacion -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Sistemas_de_Planificacion">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000285</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Tecnicas_de_Computacion_Cientifica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Tecnicas_de_Computacion_Cientifica">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000289</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Tecnologia_de_Red_Cisco_CNNA -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Tecnologia_de_Red_Cisco_CNNA">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000314</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">6</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Tecnologias_de_Comunicacion_Inalambrica -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Tecnologias_de_Comunicacion_Inalambrica">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000308</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Tema1_Introduccion_a_procesos -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Tema1_Introduccion_a_procesos">
+        <rdf:type rdf:resource="&Ontology1324312315;Teaching_Unit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Tema2_Estimacion_y_planificacion_de_proyectos_software -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Tema2_Estimacion_y_planificacion_de_proyectos_software">
+        <rdf:type rdf:resource="&Ontology1324312315;Teaching_Unit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Tema3_Gestion_de_configuracion -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Tema3_Gestion_de_configuracion">
+        <rdf:type rdf:resource="&Ontology1324312315;Teaching_Unit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Tema4_Gestion_de_calidad -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Tema4_Gestion_de_calidad">
+        <rdf:type rdf:resource="&Ontology1324312315;Teaching_Unit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Teoria_de_la_Computabilidad -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Teoria_de_la_Computabilidad">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000315</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Trabajo_Fin_de_Grado -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Trabajo_Fin_de_Grado">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Obligatory_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000275</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">12</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Traductores_de_Lenguajes -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Traductores_de_Lenguajes">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000274</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Universidad_Politecnica_de_Madrid -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Universidad_Politecnica_de_Madrid">
+        <rdf:type rdf:resource="http://purl.org/net/ebdo#Public_University"/>
+        <hasFaculty rdf:resource="http://purl.org/net/ebdo#Escuela_Tecnica_Superior_de_Ingenieros_Informaticos"/>
+        <grants rdf:resource="http://purl.org/net/ebdo#Grado_en_Ingenieria_Informatica"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#Web_Semantica_y_Linked_Data -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/ebdo#Web_Semantica_y_Linked_Data">
+        <rdf:type rdf:resource="&Ontology1324312315;Optional_Subject"/>
+        <bookingNumber rdf:datatype="&xsd;string">105000284</bookingNumber>
+        <Ontology1324312315:hasNumberOfECTS rdf:datatype="&xsd;int">3</Ontology1324312315:hasNumberOfECTS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/ebdo#repeticion_semanal -->
+
+    <ical:Value_RECUR rdf:about="http://purl.org/net/ebdo#repeticion_semanal">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <ical:interval rdf:datatype="&xsd;integer">1</ical:interval>
+        <ical:freq rdf:datatype="&xsd;string">WEEKLY</ical:freq>
+    </ical:Value_RECUR>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.0.1502) http://owlapi.sourceforge.net -->
+
